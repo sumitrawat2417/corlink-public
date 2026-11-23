@@ -94,6 +94,44 @@ flowchart TD
 
 ---
 
+## Interface Gallery & Visual Overview
+
+| Wearable Hub Dashboard | Spatial Radar HUD & Proximity |
+| :---: | :---: |
+| <img src="img/dashboard-overview.png" alt="Wearable Hub Dashboard" width="380" /> | <img src="img/spatial-radar-hud.png" alt="Spatial Radar HUD" width="380" /> |
+| *Real-time telemetry, battery monitor, clock capsule, and quick actions* | *Precision SVG radar scope with RSSI path-loss distance & IMU compass heading* |
+
+| 3D Watch Digital Twin | ST7789 Display & Watchface Customizer |
+| :---: | :---: |
+| <img src="img/3d-digital-twin.png" alt="3D Watch Digital Twin" width="380" /> | <img src="img/st7789-display-customizer.png" alt="ST7789 Display Customizer" width="380" /> |
+| *Interactive 3D chassis with live MPU6050 Euler attitude streaming* | *PWM backlight duty slider (10%-100%), sleep timeout & 4 dial themes* |
+
+| Find My Smartwatch Locator | Hardware Password Vault |
+| :---: | :---: |
+| <img src="img/find-my-smartwatch.png" alt="Find My Smartwatch" width="380" /> | <img src="img/hardware-password-vault.png" alt="Hardware Password Vault" width="380" /> |
+| *IAS 0x1802 High Alert, 2.7kHz piezo buzzer, ERM haptic & sonar audio pings* | *4-digit master PIN (7429), credential CRUD, generator & AES-128 NVS sync* |
+
+| Wrist Alarms & Chimes Suite | Wrist QR Code Manager |
+| :---: | :---: |
+| <img src="img/wrist-alarms-suite.png" alt="Wrist Alarms Suite" width="380" /> | <img src="img/qr-code-manager.png" alt="Wrist QR Code Manager" width="380" /> |
+| *FreeRTOS RTC alarm scheduling, multi-day repeating & vibration intensity* | *Dynamic vector SVG QR generation for UPI, Wi-Fi keys, and web URLs* |
+
+| Multimodal AI Voice Assistant | Look & Ask Vision Pipeline |
+| :---: | :---: |
+| <img src="img/multimodal-ai-voice.png" alt="AI Voice Assistant" width="380" /> | <img src="img/multimodal-ai-vision.png" alt="Look & Ask Vision Pipeline" width="380" /> |
+| *16 kHz PCM stream relay, Groq Whisper STT, Llama-3.3-70B reasoning & watch reply* | *OV2640 VGA frame capture, visual circuit board inspection & reports* |
+
+<div align="center">
+
+### User Profile & Diagnostics Console
+<img src="img/profile-diagnostics.png" alt="Profile & Diagnostics Console" width="460" />
+<br>
+<em>Identity management, 12H/24H format preferences, local storage counters, and system hardware specifications</em>
+
+</div>
+
+---
+
 ## Features
 
 ### 1. Multimodal AI Studio
@@ -132,6 +170,18 @@ flowchart TD
 ### 7. Wrist Alarms & Clock Suite
 - **FreeRTOS RTC Synchronization:** Configures alarms with time selectors, multi-day repeating schedules (Mon-Fri, Weekends, All Days), and vibration intensity profiles (Subtle, Strong, Pulsing).
 - **Inline 12H/24H Capsule Switcher:** Instant tap-to-switch clock formatting between 12-hour (AM/PM) and 24-hour military notation across the hero card, 3D twin, and watchface.
+
+### 8. Spatial Radar HUD & Proximity Scanner
+- **Precision SVG Vector Scope:** Viewport coordinate system (`viewBox="0 0 260 260"`) with 4 calibrated distance rings ($23\text{px}, 46\text{px}, 69\text{px}, 92\text{px}$) and continuous 360-degree rotating sweep beam.
+- **Log-Distance Path-Loss Model:** Computes target distance $d = 10^{(\text{TxPower} - \text{RSSI}) / (10 \times n)}$ with $\text{TxPower} = -59\text{ dBm}$ and indoor exponent $n = 2.2$.
+- **Inertial Bearing Lock:** Fuses MPU6050 yaw angle with host device orientation, providing live heading alignment and cardinal indicators (`N 0Â°`, `E 90Â°`, `S 180Â°`, `W 270Â°`).
+- **Multimode Views & Scalability:** Switch between Polar Radar HUD and Cartesian Room Map with instant scaling between 2m, 5m, and 10m ranges.
+- **Tactical Actions:** Immediate **Ping Audio & Haptic** alert dispatch and **Calibrate Zero** orientation reset.
+
+### 9. Genuine BLE Peripheral Management (Zero Dummy Devices)
+- **Authentic Device Discovery:** Scans directly via Web Bluetooth GATT with zero mock or hardcoded peripherals.
+- **Intelligent Empty State:** Clean dashed pairing guidance card when disconnected, eliminating phantom device confusion.
+- **Active Connection Pill:** Displays live hardware with GATT name, active status badge, live RSSI/battery telemetry, and immediate Ring/Disconnect controls.
 
 ---
 
