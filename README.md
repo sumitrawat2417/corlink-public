@@ -5,6 +5,9 @@
 ![Architecture](https://img.shields.io/badge/Architecture-React_19_|_Vite_|_Tailwind_CSS-purple.svg)
 ![Deployment](https://img.shields.io/badge/Deployment-Production_Ready-brightgreen.svg)
 ![License](https://img.shields.io/badge/License-Proprietary_&_Confidential-red.svg)
+[![Live Web Application](https://img.shields.io/badge/Live_App-Online-2ea44f.svg)](https://sumitrawat2417.github.io/corlink-public/)
+
+**Live Web Application:** [https://sumitrawat2417.github.io/corlink-public/](https://sumitrawat2417.github.io/corlink-public/)
 
 CorLink is the primary companion operating console and multimodal intelligence bridge for the **Cortex S3 AI** autonomous smartwatch. This repository provides the pre-compiled, optimized production distribution of the CorLink web client, ready for direct deployment on static web infrastructure or local hosting.
 
