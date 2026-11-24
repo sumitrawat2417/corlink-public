@@ -137,6 +137,7 @@ flowchart TD
 ### 1. Multimodal AI Studio
 - **Voice Assistant Stream Relay:** Decouples 16 kHz 16-bit PCM chunked audio streamed from the watch microphone, coordinates cloud/edge transcription via Whisper V3 Turbo, queries Llama-3.3-70B, logs conversation history locally, and transmits formatted text responses back to the watch ST7789 screen.
 - **Look & Ask Vision Pipeline:** Captures snapshots from the onboard OV2640 camera, renders the JPEG stream on-screen with hardware telemetry, dispatches visual reasoning prompts, and relays analytical reports back to the wrist.
+- **Long-Form Meeting AI Summarizer:** Enables unlimited recording duration through 8 kHz double-buffer threshold packet streaming (128 KB chunks) sent over BLE while recording continues on Core 1, combined in CorLink for Whisper transcription, structured executive summaries, action items, and watch display push.
 - **Local Conversation History:** Retains past question-and-answer exchanges with latency metrics (Whisper ms, Llama ms) and token counts, with full copy and purge controls.
 
 ### 2. 3D Watch Digital Twin & Spatial Attitude
@@ -148,7 +149,7 @@ flowchart TD
 - **Hardware PIN Lock Screen:** Decrypts vault entries through an interactive numeric keypad (1-9, 0, Clear, Backspace) verifying against the watch master PIN (default `7429`) with auto-submit and shake feedback.
 - **Credential Management:** Full add, edit, delete, and copy workflow for accounts and masked passwords across categories (Developer, Finance, Servers, Personal).
 - **Secure Password Generator:** Generates 16-character high-entropy random passwords on demand.
-- **On-Wrist Relay:** Push individual credentials directly to the ST7789 display or synchronize the encrypted batch to the ESP32-S3 non-volatile storage partition.
+- **On-Wrist Relay & Sync:** Push individual credentials directly to the ST7789 display (`VL`), synchronize the entire catalog to the ESP32-S3 `cortex_vault` NVS partition (`VC`, `VA`, `VS`), update the master PIN (`VP`), and trigger BLE HID keyboard auto-typing directly from the watch.
 
 ### 4. ST7789 Display & Watchface Customizer
 - **PWM Backlight Duty Control:** Continuous slider from 10% to 100% duty cycle (`PWM: 26/255` to `255/255`) with 4 presets (25% Dim, 50% Eco, 80% Normal, 100% Max).
@@ -165,10 +166,10 @@ flowchart TD
 ### 6. Dynamic On-Wrist QR Code Suite
 - **QR Code Manager:** Create, edit, and delete URL and payment QR records categorized under Developer, Social, Payment, and Network.
 - **SVG Generation:** Generates vector QR graphics in real time via `qrcode.react` with payload verification.
-- **Wrist Synchronization:** Transmits structured QR matrices into watch display RAM for contact cards and UPI payment codes.
+- **Wrist Synchronization:** Transmits structured QR matrices into watch display RAM and NVS (`QR`, `QC`, `QA`, `QS`) for contact cards, GitHub profiles, and UPI payment codes.
 
 ### 7. Wrist Alarms & Clock Suite
-- **FreeRTOS RTC Synchronization:** Configures alarms with time selectors, multi-day repeating schedules (Mon-Fri, Weekends, All Days), and vibration intensity profiles (Subtle, Strong, Pulsing).
+- **FreeRTOS RTC Synchronization:** Configures alarms with time selectors, 7-bit repeat day bitmasks, single-slot push (`AL`), and bulk queue synchronization (`AC`, `AA`, `AS`) directly to watch hardware storage.
 - **Inline 12H/24H Capsule Switcher:** Instant tap-to-switch clock formatting between 12-hour (AM/PM) and 24-hour military notation across the hero card, 3D twin, and watchface.
 
 ### 8. Spatial Radar HUD & Proximity Scanner
