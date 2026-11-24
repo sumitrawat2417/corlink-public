@@ -104,12 +104,12 @@ flowchart TD
 | 3D Watch Digital Twin | ST7789 Display & Watchface Customizer |
 | :---: | :---: |
 | <img src="img/3d-digital-twin.png" alt="3D Watch Digital Twin" width="380" /> | <img src="img/st7789-display-customizer.png" alt="ST7789 Display Customizer" width="380" /> |
-| *Interactive 3D chassis with live MPU6050 Euler attitude streaming* | *PWM backlight duty slider (10%-100%), sleep timeout & 4 dial themes* |
+| *Interactive 3D chassis with live MPU6050 Euler attitude streaming* | *PWM backlight duty slider (10%-100%), sleep timeout & 6 dial themes* |
 
 | Find My Smartwatch Locator | Hardware Password Vault |
 | :---: | :---: |
 | <img src="img/find-my-smartwatch.png" alt="Find My Smartwatch" width="380" /> | <img src="img/hardware-password-vault.png" alt="Hardware Password Vault" width="380" /> |
-| *IAS 0x1802 High Alert, 2.7kHz piezo buzzer, ERM haptic & sonar audio pings* | *4-digit master PIN (7429), credential CRUD, generator & AES-128 NVS sync* |
+| *IAS 0x1802 High Alert, 2.7kHz piezo buzzer, ERM haptic & sonar audio pings* | *4-digit master PIN, starter dummy credential, CRUD, generator & NVS sync* |
 
 | Wrist Alarms & Chimes Suite | Wrist QR Code Manager |
 | :---: | :---: |
